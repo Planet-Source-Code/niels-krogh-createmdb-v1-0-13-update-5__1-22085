@@ -1,0 +1,137 @@
+===============================================================================
+What is CreatedMDB ?
+===============================================================================
+CreateMDB will analyze and dump the sturture of an Access database into a BAS-
+module, you can include in your own project. 
+From your own project you can now create an Access database on the fly. 
+This project is using ADO/ADOX v2.5 but will also work on v2.1.
+
+Can be found at PlanetSourceCode : 
+http://www.planetsourcecode.com/vb/scripts/ShowCode.asp?lngWId=1&txtCodeId=22085
+
+===============================================================================
+  If creating an Access 2000 mDBs, the queries, aka views/procedures, isn't 
+  visible, ...but they exists in the MDB and work properly when used from other 
+  programs. More info at Microsoft :
+  http://support.microsoft.com/support/kb/articles/Q246/2/13.ASP
+===============================================================================
+BUG: Attributes Property of ADOX Columns Collection May Cause Append Method 
+     to Fail. see more at Microsoft :
+
+  http://support.microsoft.com/support/kb/articles/Q272/0/01.ASP  
+    
+    or
+
+  http://support.microsoft.com/directory/article.asp?ID=KB;EN-US;Q272001
+
+===============================================================================
+
+
+What the future could bring :
+===============================================================================
+- Data from the Database is included in the BAS-module.
+- I'm working on an export routine to SQL scripts, but I don't have much ex-
+  perience regarding SQL script, so i'm not sure wheather it will become public
+  or not.
+
+Version 1.00.0013 - July 2002 
+===============================================================================
+BUG : The value of ADOX property 'Nullable' was stated wrong, changed from 
+      False to True. It could explain the mysterious bug in version 0012 :o)
+
+
+Version 1.00.0012 - January 2002 
+===============================================================================
+Bug : The WriteTable-subroutine missed the quotes around the description of 
+      the column in the BAS-module - fixed.
+
+BUG: This is an odd one :
+     The Access Column Property 'Required' is equal the ADOX property 'Nullable'
+     but there must be some bug in ADOX because :
+     to SET a column to be required you must set Nullable to False (make sense)
+     but when reading if a column is required, the Nullable must be True (make 
+     no sense)
+
+     I think i have found out the problem regarding Required/Allow null values.
+
+
+
+Version 1.00.0011 - October 2001 
+===============================================================================
+New    : The WriteTable-subroutine can now handle Zero length Values of 
+         columns.
+         Requested by Michael Stephens.
+
+New    : The WriteTable-subroutine can now handle the required property of 
+         columns. 
+         Requested by William Hunter.
+
+New    : The WriteTable-subroutine can now handle the description property of 
+         columns.
+
+New    : Most recent used filelist added to menu...
+
+
+Version 1.00.0010 - 2001 May 
+===============================================================================
+
+New    : A password dialog for use when unable to detect the password.
+
+New    : The WriteTable-subroutine can now handle default Values of columns.
+         requested by Brett Woodward.
+
+Update : The CommandText of the Queries can be very long.
+         It's now splitted into smaller parts.
+         Found by Brett Woodward.
+
+Update : The splitter shows the correct mouse-cursor dragging.
+         Found by John Keady
+
+
+Version 1.00.0009 dated 2001-04-19
+===============================================================================
+Update : The WriteKey-subroutine can now handle Unique keys.
+         Requested/found by Brett Woodward.
+
+
+Version 1.00.0009 dated 2001-04-19
+===============================================================================
+New    : Added Queries aka Views and Procedures.
+ 	 (Not visible from Access 2000 - se above)
+
+Update : The WriteTable-subroutine is now creating the columns in same order 
+         as the original database.
+         Made by Jay Mistry
+
+Update : Added error handling in most of the routines.
+
+Update : Replaced the boolean values True/False with 1/0 due to German/French
+         versions of Visual basic.
+         Requested by Rainer Leonardy
+
+
+Version 1.00.0008 dated 2001-04-04
+===============================================================================
+Bugfix : If no primary key is defined for a table, the function LV_LoadTable 
+         failed - found by Mark S. Bader - Fixed.
+
+New    : Added Linked Tables - requested by Mark S. Bader.
+
+New    : Added AutoIncrement Columns - requested by Jarek.
+
+New    : A Background Bitmap is added to listview.
+
+
+Version 1.00.0007 dated 2001-04-03
+===============================================================================
+BugFix : An error in created BAS-module where a line wasen't splited properly.
+         Found by Eric Sandford - Fixed.
+
+Version 1.00.0006 dated 2001-04-02
+===============================================================================
+First public release. 
+
+
+===============================================================================
+Developer : Niels Krogh, Denmark - nikro@bigfoot.com
+===============================================================================
